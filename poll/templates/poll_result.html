@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% extends 'base.html'%}
+
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <h4>Poll Results</h4>
+
+        <div class="col-3"></div>
+        <div class="col-6">
+                <h3>{{poll.question}}</h3>
+                <div class="row mt-5">
+                    <table class="table">
+                        <tr>
+                            <th>Options</th>
+                            <th>Results</th>
+                        </tr>
+                        <tr>
+                            <td>{{ poll.option1 }}</td>
+                            <td>{{ poll.option_one_count}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ poll.option2 }}</td>
+                            <td>{{ poll.option_two_count}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ poll.option3 }}</td>
+                            <td>{{ poll.option_three_count}}</td>
+                        </tr>
+                    </table>
+                </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+{%endblock%}

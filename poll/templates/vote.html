@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'base.html'%}
+
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <h4>Cast your Vote</h4>
+        <div class="col-3"></div>
+        <div class="col-6">
+                <h3>{{poll.question}}</h3>
+            <div class="row mt-5">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="poll" value="option1" required>
+                                {{ poll.option1 }}
+                            </label>&nbsp;
+                            <label>
+                                <input type="radio" name="poll" value="option2">
+                                {{ poll.option2 }}
+                            </label>&nbsp;
+                            <label>
+                                <input type="radio" name="poll" value="option3">
+                                {{ poll.option3 }}
+                            </label>&nbsp;
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-info mt-5">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+{%endblock%}

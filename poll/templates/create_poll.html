@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{%extends 'base.html'%}
+
+{%block body_block%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <form action="" method="POST">
+                {%csrf_token%}
+                {{form.as_p}}
+                <div class="mb-3">
+                    <input type="submit" class="form-control" value="Create">
+                </div>
+            </form>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            {%if messages%}
+            {% for message in messages%}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                <div class="border bg-success text-white">
+                    {{message}}
+                </div>
+                {%endif%}
+            {%endfor%}
+            {%endif%}
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends 'base.html'%}
+
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <table class="table">
+                <tr>
+                    <th>Question</th>
+                    <th>Action</th>
+                </tr>
+                {%for ques in poll_questions%}
+                <tr>
+                    <td>{{ques.question}}</td>
+                    <td>
+                        <a href="{% url 'vote' ques.id%}" class="btn btn-outline-primary">Vote</a>
+                        <a href="{% url 'results' ques.id%}" class="btn btn-outline-warning">Results</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+{%endblock%}
